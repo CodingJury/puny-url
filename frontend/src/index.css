@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ROOT IS SAME AS DARK THEME */
+:root {
+  --custom-bg: 14, 19, 30;
+  --custom-bg-header: 24, 30, 41;
+  --custom-text: 179, 186, 203;
+}
+
+.dark {
+  --custom-bg: 14, 19, 30;
+  --custom-bg-header: 24, 30, 41;
+  --custom-text: 179, 186, 203;
+}
+
+.light {
+  --custom-bg: 255, 255, 255;
+  --custom-bg-header: 200, 200, 200;
+  --custom-text: 0, 0, 0;
+}
+
+body {
+  background: rgba(var(--custom-bg));
+  color: rgba(var(--custom-text))
+}
