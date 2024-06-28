@@ -8,7 +8,7 @@ export async function addURL(req: Request, res: Response) {
   try {
     const validator = urlSchemaValidator.safeParse(req.body);
     if(!validator.success) {
-      return handleServerError(res, validator.error)
+      return handleServerError(res, validator.error, 403, "URL validation failed")
     }
 
     const alreadyPresent = await RedisManager.getInstance().checkValueExist(validator.data.originalUrl)
@@ -18,7 +18,7 @@ export async function addURL(req: Request, res: Response) {
 
     const shortId = await getUniqueShortId();
     if(shortId) {
-      const redisResponse = await RedisManager.getInstance().addData(shortId, validator.data.originalUrl)
+      const redisResponse = await RedisManager.getInstance().addData(shortId, validator.data.originalUrl, validator.data.expire)
       if(redisResponse) {
         return handleSuccess(res, "URL added successfully")
       }else{

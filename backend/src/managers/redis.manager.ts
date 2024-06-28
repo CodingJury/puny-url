@@ -22,10 +22,19 @@ export class RedisManager {
     return RedisManager.instance;
   }
 
-  public async addData(key: string, data: string) {
+  public async addData(key: string, data: string, expire: "1-month"|"1-day"|"6-hours"| "1-hour"|"1-minute" = '1-day') {
+
+    const timeSecMapping = {
+      "1-month": 30*86400,
+      "1-day": 86400,
+      "6-hours": 6*3600,
+      "1-hour": 3600,
+      "1-minute": 60
+    }
+
     try {
       return await this.redisClient.set(key, data, {
-        EX: 86400 // 1 day
+        EX: timeSecMapping[expire]
       });
     } catch(error) {
       console.log(error)

@@ -1,11 +1,21 @@
+import dotenv from "dotenv";
+dotenv.config()
+
+import cors from "cors"
 import express from "express"
 import urlRoute from "./routes/url.routes"
 import indexRoute from "./routes/index.routes"
-import dotenv from "dotenv";
 
-dotenv.config()
 const app = express();
 app.use(express.json())
+
+const corsOptions = {
+  origin: process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(',')
+    : [],
+    methods: 'GET,POST,DELETE',
+}
+app.use(cors(corsOptions))
 
 app.get('/', (req, res) => {
   res.json({message: "API is working fine"})
