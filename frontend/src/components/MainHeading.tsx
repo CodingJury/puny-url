@@ -7,7 +7,7 @@ const MainHeading = () => {
         Shorten Your Loooong Url :)
       </div>
       <div className="text-center text-xl">
-        TinyUrl is an efficient and easy-to-use URL shortening service that streamlines your online experience.
+        PunyUrl is an efficient and easy-to-use URL shortening service that streamlines your online experience.
       </div>
     </>
   )
