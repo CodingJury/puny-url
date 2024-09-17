@@ -1,6 +1,7 @@
 import axios from "axios";
 
-export const BASE_URL = "https://puny-url.onrender.com";
+export const BASE_URL = "https://puny-url.codingjury.workers.dev";
+// export const BASE_URL = "https://puny-url.onrender.com";
 // export const BASE_URL = "http://localhost:3000";
 
 const axiosInstance = axios.create({
