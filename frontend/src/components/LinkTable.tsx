@@ -31,7 +31,7 @@ const LinkTable = ({columns, rows}:TableProps) => {
         {rows.map((row, rowIndex) => (
           <tr key={rowIndex} className="h-12 border-b-[1px] border-custom-text">
             {columns.map((column) => (
-              <td key={column.id} align={column.align} width={column.width} className="px-2">{row[column.id]}</td>
+              <td key={column.id} align={column.align} width={column.width} className="px-2 break-all">{row[column.id]}</td>
             ))}
           </tr>
         ))}
